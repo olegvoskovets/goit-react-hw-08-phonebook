@@ -39,18 +39,10 @@ const LoginPage = () => {
   const handleLogin = e => {
     e.preventDefault();
     dispatch(loginUser(user));
-    //navigate('/');
-  };
+    
 
   return (
-    // <div className={css.login}>
-    //   <form onSubmit={handleLogin}>
-    //     <input type="text" name="name" onChange={handleChange} />
-    //     <input type="email" name="email" onChange={handleChange} />
-    //     <input type="password" name="password" onChange={handleChange} />
-    //     <button type="submit">login</button>
-    //   </form>
-    // </div>
+   
     <div className={css.login}>
       <Form className={css.loginForm}>
         <Typography.Title className={css.loginTitle}>Login</Typography.Title>

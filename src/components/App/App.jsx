@@ -1,7 +1,7 @@
 import ContactsList from 'components/ContactsList/ContactsList';
 
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchContacts } from 'redux/contacts/operations';
+//import { fetchContacts } from 'redux/contacts/operations';
 import { useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Layout from 'components/Layout/Layout';

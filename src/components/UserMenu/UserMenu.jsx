@@ -22,7 +22,9 @@ const UserMenu = () => {
           <Link to="/login">Login</Link>
         </div>
       ) : (
-        <span onClick={handleLogOut}>LogOut</span>
+        <span className={css.logOut} onClick={handleLogOut}>
+          LogOut
+        </span>
       )}
     </div>
   );
