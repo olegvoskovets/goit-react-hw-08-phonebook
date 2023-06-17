@@ -1,0 +1,21 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  color: rgb(13, 97, 112);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-bottom: 1px solid gray;
+  padding: 20px 0;
+}
+.nav_list {
+  display: flex;
+  gap: 35px;
+}
+
+.container {
+  /* max-width: 900px; */
+  margin: 0 auto;
+}

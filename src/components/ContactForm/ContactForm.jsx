@@ -3,8 +3,8 @@ import css from '../App/App.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 //import { nanoid } from '@reduxjs/toolkit';
 //import { addContact } from 'redux/contactsSlice';
-import { selectContacts } from 'redux/selectors';
-import { addContact } from 'redux/operations';
+import { selectContacts } from 'redux/contacts/selectors';
+import { addContact } from 'redux/contacts/operations';
 
 export const ContactForm = () => {
   const [contact, setContact] = useState({ name: '', number: '' });

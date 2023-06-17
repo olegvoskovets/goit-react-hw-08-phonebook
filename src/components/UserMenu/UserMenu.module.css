@@ -1,0 +1,8 @@
+.right_header {
+  display: flex;
+  gap: 20px;
+}
+.right_header_link {
+  display: flex;
+  gap: 20px;
+}
