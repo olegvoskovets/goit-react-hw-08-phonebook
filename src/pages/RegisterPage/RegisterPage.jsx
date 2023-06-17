@@ -1,4 +1,4 @@
-import { Button, Divider, Form, Input, message, Typography } from 'antd';
+import { Button, Form, Input, Typography } from 'antd';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
@@ -13,19 +13,13 @@ const RegisterPage = () => {
     password: '',
     name: '',
   });
-  const [err, setErr] = useState(null);
+  // const [err, setErr] = useState(null);
 
   const handleChange = e => {
     setInputs(prev => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
   const handleRegistracion = e => {
-    // setInputs({
-    //   username: '',
-    //   email: '',
-    //   password: '',
-    //   name: '',
-    // });
     console.log('user', user);
     dispatch(registrationUser(user));
   };
@@ -92,7 +86,7 @@ const RegisterPage = () => {
           />
         </Form.Item>
 
-        {err && <div style={{ color: 'red' }}>{err}</div>}
+        {/* {err && <div style={{ color: 'red' }}>{err}</div>} */}
         <Button
           type="primary"
           htmlType="submit"

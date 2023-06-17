@@ -4,29 +4,21 @@ import {
   GoogleOutlined,
   TwitterOutlined,
 } from '@ant-design/icons';
-//import { Link, useNavigate } from "react-router-dom";
 
-//import './login.scss';
-// import { useContext, useState } from 'react';
-// import { AuthContext } from '../../context/authContext';
-import { useDispatch, useSelector } from 'react-redux';
-import { Link, useNavigate } from 'react-router-dom';
-//import { login } from "../../store/auth";
-import css from './LoginPage.module.css';
+import { useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
+
 import { useState } from 'react';
 import { loginUser } from 'redux/auth/authOperations';
+import css from './LoginPage.module.css';
 
 const LoginPage = () => {
-  //const { login } = useContext(AuthContext);
-  // const { login } = useSelector((state) => state.authReducer.authSlice);
   const dispatch = useDispatch();
 
   const [user, setInputs] = useState({
     username: '',
     password: '',
   });
-  // const [err, setErr] = useState(null);
-  const navigate = useNavigate();
 
   const handleChange = e => {
     setInputs(prev => ({ ...prev, [e.target.name]: e.target.value }));
@@ -39,10 +31,9 @@ const LoginPage = () => {
   const handleLogin = e => {
     e.preventDefault();
     dispatch(loginUser(user));
-    
+  };
 
   return (
-   
     <div className={css.login}>
       <Form className={css.loginForm}>
         <Typography.Title className={css.loginTitle}>Login</Typography.Title>
