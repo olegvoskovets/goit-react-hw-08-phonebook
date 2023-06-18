@@ -28,13 +28,15 @@ const Home = () => {
           new Contact
         </button>
       )}
-      {contacts.length > 0 && (
+      {contacts.length > 0 ? (
         <>
           <h2 className={css.contact}>Contacts</h2>
 
           <Filter />
           <ContactsList />
         </>
+      ) : (
+        <p>У Вас поки відсутні контакти</p>
       )}
     </div>
   );

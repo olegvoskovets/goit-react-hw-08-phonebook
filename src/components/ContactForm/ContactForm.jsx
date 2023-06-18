@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import css from './ContactForm.module.css';
 import { useDispatch, useSelector } from 'react-redux';
-
 import { selectContacts, selectVisibleForm } from 'redux/contacts/selectors';
 import { addContact } from 'redux/contacts/operations';
 import { toogleVisibleForm } from 'redux/contacts/contactsSlice';
@@ -35,7 +34,7 @@ export const ContactForm = () => {
     }
 
     const newContact = contact;
-    // contact.id = nanoid();
+
     dispatch(addContact(newContact));
     setContact({
       name: '',
