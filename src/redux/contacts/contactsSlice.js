@@ -6,6 +6,7 @@ const initialState = {
   filter: '',
   isLoading: false,
   isError: null,
+  visibleForm: false,
 };
 
 const contactsSlice = createSlice({
@@ -14,6 +15,9 @@ const contactsSlice = createSlice({
   reducers: {
     getFilter(state, action) {
       state.filter = action.payload;
+    },
+    toogleVisibleForm(state) {
+      state.visibleForm = !state.visibleForm;
     },
   },
   extraReducers: {
@@ -36,6 +40,7 @@ const contactsSlice = createSlice({
     [addContact.fulfilled]: (state, action) => {
       state.isLoading = false;
       state.contacts.push(action.payload);
+      state.visibleForm = !state.visibleForm;
     },
     [addContact.rejected]: (state, action) => {
       state.isLoading = false;
@@ -58,5 +63,5 @@ const contactsSlice = createSlice({
   },
 });
 
-export const { getFilter } = contactsSlice.actions;
+export const { getFilter, toogleVisibleForm } = contactsSlice.actions;
 export const contactsReduser = contactsSlice.reducer;

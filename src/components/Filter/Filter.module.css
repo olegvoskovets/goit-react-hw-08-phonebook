@@ -1,0 +1,20 @@
+.filter {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+}
+.input {
+  margin-top: 15px;
+  width: 200px;
+  font-size: 16px;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.input:focus {
+  outline: none;
+  border: 2px solid rgb(128, 207, 238);
+}
+.input::placeholder {
+  font-size: 16px;
+}
