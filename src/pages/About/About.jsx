@@ -1,5 +1,3 @@
-import MarginHeader from 'components/MarginHeader/MarginHeader';
-
 import css from './About.module.css';
 
 const About = () => {

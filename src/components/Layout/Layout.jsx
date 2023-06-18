@@ -3,12 +3,10 @@ import React from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
 import css from './Layout.module.css';
 import image from '../../image/telefon_spr.png';
-import MarginHeader from 'components/MarginHeader/MarginHeader';
 
 const Layout = () => {
   return (
     <>
-      {/* <MarginHeader /> */}
       <header className={css.header}>
         <div className={css.header_left}>
           <img src={image} alt="tel" width={'40px'} />

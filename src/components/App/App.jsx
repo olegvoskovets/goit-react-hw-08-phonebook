@@ -1,5 +1,3 @@
-import ContactsList from 'components/ContactsList/ContactsList';
-
 import { useDispatch, useSelector } from 'react-redux';
 
 import { useEffect } from 'react';

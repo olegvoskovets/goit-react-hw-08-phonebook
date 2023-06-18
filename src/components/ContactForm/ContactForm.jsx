@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import css from './ContactForm.module.css';
 import { useDispatch, useSelector } from 'react-redux';
-//import { nanoid } from '@reduxjs/toolkit';
-//import { addContact } from 'redux/contactsSlice';
+
 import { selectContacts, selectVisibleForm } from 'redux/contacts/selectors';
 import { addContact } from 'redux/contacts/operations';
 import { toogleVisibleForm } from 'redux/contacts/contactsSlice';
