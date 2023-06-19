@@ -19,7 +19,6 @@ const RegisterPage = () => {
   };
 
   const handleRegistracion = e => {
-    console.log('user', user);
     dispatch(registrationUser(user));
   };
 
