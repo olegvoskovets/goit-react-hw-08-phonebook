@@ -8,7 +8,7 @@ export const registrationUser = createAsyncThunk(
   async (user, thunk_Api) => {
     try {
       const { data } = await Api.post('users/signup', user);
-
+      token.set(data.token);
       return data;
     } catch (error) {
       return thunk_Api.rejectWithValue(error.message);

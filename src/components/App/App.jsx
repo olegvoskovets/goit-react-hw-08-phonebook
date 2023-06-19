@@ -16,13 +16,11 @@ import { fetchContacts } from 'redux/contacts/operations';
 
 export const App = () => {
   const dispatch = useDispatch();
-
+  const isRefresher = useSelector(selectIsRefresher);
   useEffect(() => {
     dispatch(refreshUser());
     dispatch(fetchContacts());
   }, [dispatch]);
-
-  const isRefresher = useSelector(selectIsRefresher);
 
   return isRefresher ? (
     <Loader />

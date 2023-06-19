@@ -5,6 +5,12 @@ import { token } from 'redux/api/Api';
 export const fetchContacts = createAsyncThunk(
   'contacts/fetchContacts',
   async (_, thunk_Api) => {
+    const state = thunk_Api.getState();
+
+    const persistToken = state.auth.token;
+    if (!persistToken) {
+      return thunk_Api.rejectWithValue('No token');
+    }
     try {
       const { data } = await Api.get('contacts');
 
