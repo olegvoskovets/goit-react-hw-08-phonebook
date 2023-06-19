@@ -28,9 +28,10 @@ export const fetchContacts = createAsyncThunk(
     try {
       token.set(persistToken);
       const { data } = await axiosContacts.get('contacts');
-      console.log('DATA Contacts', data);
+
       return data;
     } catch (error) {
+      token.unset();
       return thunk_Api.rejectWithValue(error.message);
     }
   }
@@ -50,6 +51,7 @@ export const addContact = createAsyncThunk(
 
       return data;
     } catch (error) {
+      token.unset();
       return thunk_Api.rejectWithValue(error.message);
     }
   }
@@ -69,6 +71,7 @@ export const deleteContact = createAsyncThunk(
 
       return data;
     } catch (error) {
+      token.unset();
       return thunk_Api.rejectWithValue(error.message);
     }
   }

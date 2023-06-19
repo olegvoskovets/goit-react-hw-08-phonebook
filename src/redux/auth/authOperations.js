@@ -41,6 +41,7 @@ export const refreshUser = createAsyncThunk(
       const { data } = await axiosUser.get('users/current');
       return data;
     } catch (err) {
+      token.unset();
       return thunkAPI.rejectWithValue(err.message);
     }
   }
@@ -58,9 +59,9 @@ export const userLogOut = createAsyncThunk(
       token.set(persistToken);
       const { data } = await axiosUser.post('users/logout');
 
-      console.log('DATA ', data);
       return data;
     } catch (error) {
+      token.unset();
       return thunkAPI.rejectWithValue(error.message);
     }
   }
