@@ -47,10 +47,9 @@ export const userLogOut = createAsyncThunk(
     try {
       token.set(persistToken);
       const { data } = await Api.post('users/logout');
-
+      token.unset();
       return data;
     } catch (error) {
-      token.unset();
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -62,6 +61,7 @@ export const loginUser = createAsyncThunk(
     try {
       const { data } = await Api.post('users/login', user);
 
+      token.set(data.token);
       return data;
     } catch (error) {
       return thunk_Api.rejectWithValue(error.message);

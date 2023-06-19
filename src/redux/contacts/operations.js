@@ -5,14 +5,7 @@ import { token } from 'redux/api/Api';
 export const fetchContacts = createAsyncThunk(
   'contacts/fetchContacts',
   async (_, thunk_Api) => {
-    const state = thunk_Api.getState();
-
-    const persistToken = state.auth.token;
-    if (!persistToken) {
-      return thunk_Api.rejectWithValue('No token');
-    }
     try {
-      token.set(persistToken);
       const { data } = await Api.get('contacts');
 
       return data;
@@ -25,14 +18,7 @@ export const fetchContacts = createAsyncThunk(
 export const addContact = createAsyncThunk(
   'contacts/addContact',
   async (contact, thunk_Api) => {
-    const state = thunk_Api.getState();
-
-    const persistToken = state.auth.token;
-    if (!persistToken) {
-      return thunk_Api.rejectWithValue('No token');
-    }
     try {
-      token.set(persistToken);
       const { data } = await Api.post('contacts', contact);
 
       return data;
@@ -45,14 +31,7 @@ export const addContact = createAsyncThunk(
 export const deleteContact = createAsyncThunk(
   'contacts/deleteContact',
   async (id, thunk_Api) => {
-    const state = thunk_Api.getState();
-
-    const persistToken = state.auth.token;
-    if (!persistToken) {
-      return thunk_Api.rejectWithValue('No token');
-    }
     try {
-      token.set(persistToken);
       const { data } = await Api.delete(`contacts/${id}`);
 
       return data;
