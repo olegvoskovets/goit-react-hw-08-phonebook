@@ -29,13 +29,10 @@ export const ContactForm = () => {
         number: '',
       });
       alert('Такий контакт існує ...');
-
       return;
     }
 
-    const newContact = contact;
-
-    dispatch(addContact(newContact));
+    dispatch(addContact(contact));
     setContact({
       name: '',
       number: '',

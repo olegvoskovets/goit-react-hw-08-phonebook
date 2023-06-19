@@ -19,6 +19,13 @@ const contactsSlice = createSlice({
     toogleVisibleForm(state) {
       state.visibleForm = !state.visibleForm;
     },
+    logOutContacts(state) {
+      state.contacts = [];
+      state.filter = '';
+      state.isLoading = false;
+      state.isError = null;
+      state.visibleForm = false;
+    },
   },
   extraReducers: {
     [fetchContacts.pending]: state => {
@@ -63,5 +70,6 @@ const contactsSlice = createSlice({
   },
 });
 
-export const { getFilter, toogleVisibleForm } = contactsSlice.actions;
+export const { getFilter, toogleVisibleForm, logOutContacts } =
+  contactsSlice.actions;
 export const contactsReduser = contactsSlice.reducer;

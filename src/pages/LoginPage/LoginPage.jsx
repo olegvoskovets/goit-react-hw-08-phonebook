@@ -11,6 +11,7 @@ import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { loginUser } from 'redux/auth/authOperations';
 import css from './LoginPage.module.css';
+import { fetchContacts } from 'redux/contacts/operations';
 
 const LoginPage = () => {
   const dispatch = useDispatch();
@@ -28,9 +29,10 @@ const LoginPage = () => {
     message.success('Вхід через ' + name);
   };
 
-  const handleLogin = e => {
+  const handleLogin = async e => {
     e.preventDefault();
-    dispatch(loginUser(user));
+    await dispatch(loginUser(user)).unwrap();
+    dispatch(fetchContacts());
   };
 
   return (

@@ -6,18 +6,20 @@ import Layout from 'components/Layout/Layout';
 import Home from 'pages/Home/Home';
 import LoginPage from 'pages/LoginPage/LoginPage';
 import RegisterPage from 'pages/RegisterPage/RegisterPage';
-import RestrictedPoute from 'components/RestrictedPoute/RestrictedPoute';
+import PublicRoute from 'components/PublicRoute/PublicRoute';
 import PrivateRoute from 'components/PrivateRoute/PrivateRoute';
 import { refreshUser } from 'redux/auth/authOperations';
 import { selectIsRefresher } from 'redux/auth/authSelector';
 import { Loader } from 'components/Loader/Loader';
 import About from 'pages/About/About';
+import { fetchContacts } from 'redux/contacts/operations';
 
 export const App = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(refreshUser());
+    dispatch(fetchContacts());
   }, [dispatch]);
 
   const isRefresher = useSelector(selectIsRefresher);
@@ -38,13 +40,11 @@ export const App = () => {
 
         <Route
           path="register"
-          element={
-            <RestrictedPoute redirectTo="/" component={<RegisterPage />} />
-          }
+          element={<PublicRoute redirectTo="/" component={<RegisterPage />} />}
         />
         <Route
           path="login"
-          element={<RestrictedPoute redirectTo="/" component={<LoginPage />} />}
+          element={<PublicRoute redirectTo="/" component={<LoginPage />} />}
         />
       </Route>
       <Route path="*" element={<Navigate to="/" />} />

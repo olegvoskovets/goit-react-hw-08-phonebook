@@ -73,7 +73,7 @@ export const authSlice = createSlice({
       .addCase(userLogOut.pending, state => {
         state.isError = '';
       })
-      .addCase(userLogOut.fulfilled, (state, { payload }) => {
+      .addCase(userLogOut.fulfilled, state => {
         state.user = initialState.user;
         state.isLoggedIn = false;
         state.isLoading = false;

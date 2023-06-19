@@ -12,10 +12,13 @@ import { toogleVisibleForm } from 'redux/contacts/contactsSlice';
 const Home = () => {
   const dispatch = useDispatch();
   const visibleForm = useSelector(selectVisibleForm);
+
   const contacts = useSelector(selectContacts);
+
   const hendleToggleVisibleForm = () => {
     dispatch(toogleVisibleForm());
   };
+  // if (!contacts) return;
   return (
     <div className={css.content}>
       <h1 className={css.content_text}>Phonebook</h1>

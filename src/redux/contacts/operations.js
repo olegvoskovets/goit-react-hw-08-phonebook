@@ -1,20 +1,6 @@
-import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-
-//axios.defaults.baseURL = 'https://6489b47f5fa58521cab016a7.mockapi.io';
-
-const axiosContacts = axios.create({
-  baseURL: 'https://connections-api.herokuapp.com/',
-});
-
-const token = {
-  set(token) {
-    axiosContacts.defaults.headers.common.Authorization = `Bearer ${token}`;
-  },
-  unset() {
-    axiosContacts.defaults.headers.common.Authorization = '';
-  },
-};
+import { Api } from 'redux/api/Api';
+import { token } from 'redux/api/Api';
 
 export const fetchContacts = createAsyncThunk(
   'contacts/fetchContacts',
@@ -27,7 +13,7 @@ export const fetchContacts = createAsyncThunk(
     }
     try {
       token.set(persistToken);
-      const { data } = await axiosContacts.get('contacts');
+      const { data } = await Api.get('contacts');
 
       return data;
     } catch (error) {
@@ -47,7 +33,7 @@ export const addContact = createAsyncThunk(
     }
     try {
       token.set(persistToken);
-      const { data } = await axiosContacts.post('contacts', contact);
+      const { data } = await Api.post('contacts', contact);
 
       return data;
     } catch (error) {
@@ -67,7 +53,7 @@ export const deleteContact = createAsyncThunk(
     }
     try {
       token.set(persistToken);
-      const { data } = await axiosContacts.delete(`contacts/${id}`);
+      const { data } = await Api.delete(`contacts/${id}`);
 
       return data;
     } catch (error) {

@@ -4,27 +4,24 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectCurrentUser, selectIsLoggedIn } from 'redux/auth/authSelector';
 import { userLogOut } from 'redux/auth/authOperations';
 import currentUser from '../../image/1673118323026images (9).jpg';
-import guestFoto from '../../image/no_avatar_57.jpg';
+
 import css from './UserMenu.module.css';
+import { logOutContacts } from 'redux/contacts/contactsSlice';
 const UserMenu = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
   const { name } = useSelector(selectCurrentUser);
   const dispatch = useDispatch();
 
-  const handleLogOut = () => {
-    dispatch(userLogOut());
+  const handleLogOut = async () => {
+    await dispatch(userLogOut()).unwrap();
+    dispatch(logOutContacts());
   };
   return (
     <div className={css.right_header}>
-      {isLoggedIn ? (
+      {isLoggedIn && (
         <>
           <img className={css.userFoto} src={currentUser} alt="currentUser" />{' '}
           <p className={css.userName}>{name}</p>
-        </>
-      ) : (
-        <>
-          <img className={css.userFoto} src={guestFoto} alt="currentUser" />
-          <p className={css.userName}>Гість</p>
         </>
       )}
 

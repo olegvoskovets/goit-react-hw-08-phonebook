@@ -5,15 +5,11 @@ import { deleteContact, fetchContacts } from 'redux/contacts/operations';
 import css from './ContactsList.module.css';
 import { Loader } from 'components/Loader/Loader';
 import { selectFilterSearch, selectIsLoading } from 'redux/contacts/selectors';
-import { useEffect } from 'react';
 
 const ContactsList = () => {
   const isLoading = useSelector(selectIsLoading);
 
   const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(fetchContacts());
-  }, [dispatch]);
 
   const visibleContacts = useSelector(selectFilterSearch);
   return (
