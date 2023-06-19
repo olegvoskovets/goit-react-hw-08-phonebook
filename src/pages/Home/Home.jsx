@@ -18,7 +18,7 @@ const Home = () => {
   const hendleToggleVisibleForm = () => {
     dispatch(toogleVisibleForm());
   };
-  // if (!contacts) return;
+
   return (
     <div className={css.content}>
       <h1 className={css.content_text}>Phonebook</h1>
