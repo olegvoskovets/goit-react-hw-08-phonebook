@@ -80,11 +80,7 @@ export const authSlice = createSlice({
         state.isRefresher = false;
         state.token = '';
       })
-      .addCase(userLogOut.rejected, (state, { payload }) => {
-        state.isLoading = false;
-        state.isError = payload.error;
-        state.isRefresher = false;
-      });
+      .addCase(userLogOut.rejected, () => initialState);
   },
 });
 

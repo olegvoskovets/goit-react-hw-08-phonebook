@@ -38,14 +38,14 @@ export const refreshUser = createAsyncThunk(
 export const userLogOut = createAsyncThunk(
   'user/logOut',
   async (_, thunkAPI) => {
-    const state = thunkAPI.getState();
+    // const state = thunkAPI.getState();
 
-    const persistToken = state.auth.token;
-    if (!persistToken) {
-      return thunkAPI.rejectWithValue('No token');
-    }
+    // const persistToken = state.auth.token;
+    // if (!persistToken) {
+    //   return thunkAPI.rejectWithValue('No token');
+    // }
     try {
-      token.set(persistToken);
+      // token.set(persistToken);
       const { data } = await Api.post('users/logout');
       token.unset();
       return data;
